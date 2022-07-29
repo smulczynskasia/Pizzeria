@@ -174,7 +174,6 @@
           if(optionImage) {
             if(optionSelected){
               optionImage.classList.add(classNames.menuProduct.imageVisible);
-              console.log('dodany obrazek:',classNames.menuProduct.imageVisible);
             } else {
               optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
