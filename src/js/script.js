@@ -166,9 +166,7 @@
 
     processOrder(){
       const thisProduct = this;
-      console.log('processOrder');
-      const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData', formData);  
+      const formData = utils.serializeFormToObject(thisProduct.form);  
   
       // set price to default price
       let price = thisProduct.data.price;
@@ -177,13 +175,11 @@
       for(let paramId in thisProduct.data.params) {
         // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
         const param = thisProduct.data.params[paramId];
-        console.log(paramId, param);
 	
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(optionId, option);
 
           // check if there is param with a name of paramId in formData and if it includes optionId
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
@@ -227,21 +223,21 @@
     addToCart(){
       const thisProduct = this;
       
-      app.cart.add(thisProduct);
       app.cart.add(thisProduct.prepareCartProduct());
     }
 
     prepareCartProduct(){
       const thisProduct = this;
+      console.log(thisProduct);
       const productSummary = {
         id: thisProduct.id,
-        name: thisProduct.name,
-        amount: thisProduct.amount,
+        name: thisProduct.data.name,
+        amount: thisProduct.amountWidget.value,
         priceSingle: thisProduct.priceSingle,
         price: thisProduct.price,
         params: thisProduct.prepareCartProductParams(),
       };
-      return productSummary;
+      return productSummary; 
     }
 
     prepareCartProductParams(){
@@ -258,19 +254,22 @@
         const param = thisProduct.data.params[paramId];
         // create category param in params const eg. params = { ingredients: { name: 'Ingredients', options: {}}}
         params[paramId] = {
-          label: param.labe,
+          label: param.label,
           options: {}
         };    
         // for every option in this category
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
+          console.log(option);
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           if(optionSelected) {
-            params[paramId].options[optionId] = option;
+            params[paramId].options[optionId] = option.label;
+            console.log(optionId);
           } 
         }
       }
+      console.log(params);
       return params;
     }
   }
@@ -282,7 +281,6 @@
       thisCart.products = [];
       thisCart.getElements(element);
       thisCart.initActions(element);
-      console.log('new Cart:', thisCart);
     }
 
     getElements(element){
@@ -303,7 +301,6 @@
 
     add(menuProduct){
       const thisCart = this;
-      console.log('adding product', menuProduct);
 	
       /* [DONE] generate HTML based on template */
       const generatedHTML = templates.cartProduct(menuProduct);
@@ -320,7 +317,6 @@
   const app = {
     initMenu: function(){
       const thisApp = this;
-      console.log('thisAppData:', thisApp.data);
 
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);	
@@ -341,11 +337,6 @@
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
     
       thisApp.initData();
       thisApp.initMenu();
@@ -355,9 +346,6 @@
   class AmountWidget{
     constructor (element){
       const thisWidget = this;
-
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
 
       thisWidget.getElements(element);
       thisWidget.setValue(thisWidget.input.value);
