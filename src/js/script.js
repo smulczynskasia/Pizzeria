@@ -228,7 +228,6 @@
 
     prepareCartProduct(){
       const thisProduct = this;
-      console.log(thisProduct);
       const productSummary = {
         id: thisProduct.id,
         name: thisProduct.data.name,
@@ -261,15 +260,12 @@
         for(let optionId in param.options) {
           // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
           const option = param.options[optionId];
-          console.log(option);
           const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
           if(optionSelected) {
             params[paramId].options[optionId] = option.label;
-            console.log(optionId);
           } 
         }
       }
-      console.log(params);
       return params;
     }
   }
@@ -311,6 +307,33 @@
       /* [DONE] add element to menu */
       thisCart.dom.productList.appendChild(generatedDOM);
       
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+    }
+  }
+
+  class CartProduct{
+    constructor(menuProduct, element){
+      const thisCartProduct = this;
+      console.log(thisCartProduct); 
+      thisCartProduct.id = menuProduct.id;
+      thisCartProduct.name = menuProduct.name;
+      thisCartProduct.amount = menuProduct.amount;
+      thisCartProduct.priceSingle = menuProduct.priceSingle;
+      thisCartProduct.price = menuProduct.price;
+      thisCartProduct.params = menuProduct.params;
+      thisCartProduct.getElements(element);
+      console.log('thisCartProduct:', thisCartProduct);
+       
+    }
+
+    getElements(element){
+      const thisCartProduct = this;
+      thisCartProduct.dom = {};
+      thisCartProduct.dom.wrapper = element;
+      thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+      thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
+      thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
     }
   }
 
