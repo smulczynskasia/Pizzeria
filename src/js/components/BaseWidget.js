@@ -1,3 +1,5 @@
+import { settings } from '../settings.js';
+
 class BaseWidget{
   constructor(wrapperElement, initialValue){
     const thisWidget = this;
@@ -5,19 +7,29 @@ class BaseWidget{
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
 
-    thisWidget.value = initialValue;
+    thisWidget.correctValue = initialValue;
+  }
+
+  get value(){
+    const thisWidget = this;
+    return thisWidget.correctValue;
+  }
+
+  set value(value){
+    const thisWidget = this;
+    const newValue = thisWidget.parseValue(value);
+    thisWidget.correctValue = settings.amountWidget.defaultValue;
+    /* add validation */
+    if(newValue != thisWidget.correctValue && thisWidget.isValid(newValue)){
+      thisWidget.correctValue = newValue;
+    }
+    thisWidget.announce();
+    thisWidget.renderValue();
   }
 
   setValue(value){
     const thisWidget = this;
-    const newValue = thisWidget.parseValue(value);
-    /* add validation */
-    if(newValue != thisWidget.value && thisWidget.isValid(newValue)){
-      thisWidget.value = newValue;
-      thisWidget.announce();
-    }
-
-    thisWidget.renderValue();
+    thisWidget.value = value;
   }
 
   parseValue(value){
