@@ -10,6 +10,7 @@ class Booking{
 
     thisBooking.render(element);
     thisBooking.initWidgets();
+    thisBooking.getData();
   }
 
   getData(){
@@ -36,20 +37,20 @@ class Booking{
 
     };
 
-    // console.log('getData params', params);
+    console.log('getData params', params);
 
     const urls = {
       booking:       settings.db.url + '/' + settings.db.bookings
-                                     + '?' + params.bookings.join('&'),
+                                     + '?' + params.booking.join('&'),
       eventsCurrent: settings.db.url + '/' + settings.db.events
                                      + '?' + params.eventsCurrent.join('&'),
       eventsRepeat:  settings.db.url + '/' + settings.db.events
                                      + '?' + params.eventsRepeat.join('&'),
     };
-    // console.log('urls', urls);
+    console.log('urls', urls);
 
     Promise.all([
-      fetch(urls.bookings),
+      fetch(urls.booking),
       fetch(urls.eventsCurrent),
       fetch(urls.eventsRepeat),
     ])
@@ -64,9 +65,9 @@ class Booking{
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]){
-        // console.log(bookings);
-        // console.log(eventsCurrent);
-        // console.log(eventsRepeat);
+        console.log(bookings);
+        console.log(eventsCurrent);
+        console.log(eventsRepeat);
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }
@@ -94,7 +95,7 @@ class Booking{
         }
       }
     }
-    // console.log('thisBooking.booked', thisBooking.booked);
+    console.log('thisBooking.booked', thisBooking.booked);
 
     thisBooking.updateDOM();
   }
@@ -137,7 +138,7 @@ class Booking{
     }
 
     for(let table of thisBooking.dom.tables){
-      let tableId = table.getAttribute(settings.bookings.tableIdAttribute);
+      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
       if(!isNaN(tableId)){
         tableId = parseInt(tableId);
       }
@@ -147,9 +148,9 @@ class Booking{
 				&&
 				thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ){
-        table.classList.add(classNames.bookings.tableBooked);
+        table.classList.add(classNames.booking.tableBooked);
       } else {
-        table.classList.remove(classNames.bookings.tableBooked);
+        table.classList.remove(classNames.booking.tableBooked);
       }
     }
   }
