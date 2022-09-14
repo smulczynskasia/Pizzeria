@@ -145,28 +145,36 @@ class Booking{
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
+      if (table.classList.contains(classNames.booking.tableSelected)) {
+        table.classList.remove(classNames.booking.tableSelected);
+      }
     }
   }
 
-  initTables(event){
+  initTables(clickedElement){
     const thisBooking = this;
-    const clickedElement = event.target;
-    const tableId = event.target.offsetParent.getAttribute('table-id');
+    console.log(clickedElement);
+    const tableId = clickedElement.getAttribute('data-table');
+    const isBooked = clickedElement.classList.contains(classNames.booking.tableBooked);
+    const isSelected = clickedElement.classList.contains(classNames.booking.tableSelected);
 
     if(tableId){
-      if(clickedElement.offsetParent.classList.contains(settings.classNames.booking.tableBooked)) {
+      console.log(tableId);
+      if(isBooked) {
         alert('Ten stolik jest już zajęty. Wybierz inny stolik.');
-      } else {
+      } else if (isSelected) {
+        clickedElement.classList.remove(classNames.booking.tableSelected);
+        thisBooking.selectedTable = {};
+      } else if (!isSelected) {
         for(const table of thisBooking.dom.tables){
-          if(table.classList.contains(settings.classNames.booking.tableBooked)){
-            table.classList.remove(settings.classNames.booking.tableBooked);
+          if(table.classList.contains(classNames.booking.tableSelected)){
+            table.classList.remove(classNames.booking.tableSelected);
           }
         }
+        clickedElement.classList.add(classNames.booking.tableSelected);
+        thisBooking.selectedTable = tableId;
 
-        thisBooking.tableSelected = tableId;
-        clickedElement.classList.add(settings.classNames.booking.tableBooked);
       }
-      console.log('selectedTable', thisBooking.selectedTable);
     }
   }
 
@@ -202,8 +210,8 @@ class Booking{
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
     });
-    thisBooking.dom.wrapper.addEventListener('click', function(event){
-      thisBooking.initTables(event);
+    thisBooking.dom.tablesContainer.addEventListener('click', function(event){
+      thisBooking.initTables(event.target);
     });
   }
 }
