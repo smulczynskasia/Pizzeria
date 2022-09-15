@@ -45,6 +45,7 @@ export const select = {
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
     tablesContainer: '.floor-plan',
+    selectedTable: '.selected',
   },
   nav: {
     links: '.main-nav a',

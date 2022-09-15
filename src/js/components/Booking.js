@@ -11,7 +11,7 @@ class Booking{
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
-    thisBooking.selectedTable = {};
+    thisBooking.selected = {};
   }
 
   getData(){
@@ -115,10 +115,20 @@ class Booking{
     }
   }
 
+  removeTables(){
+    const selectedTables = document.querySelectorAll(select.booking.selectedTable);
+
+    for(let selectedTable of selectedTables){
+      selectedTable.classList.remove(classNames.booking.tableSelected);
+    }
+  }
+
+
   updateDOM(){
     const thisBooking = this;
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
+    thisBooking.removeTables();
 
     let allAvailable = false;
 
@@ -164,15 +174,11 @@ class Booking{
         alert('Ten stolik jest już zajęty. Wybierz inny stolik.');
       } else if (isSelected) {
         clickedElement.classList.remove(classNames.booking.tableSelected);
-        thisBooking.selectedTable = {};
+        thisBooking.selected = {};
       } else if (!isSelected) {
-        for(const table of thisBooking.dom.tables){
-          if(table.classList.contains(classNames.booking.tableSelected)){
-            table.classList.remove(classNames.booking.tableSelected);
-          }
-        }
+        thisBooking.removeTables();
         clickedElement.classList.add(classNames.booking.tableSelected);
-        thisBooking.selectedTable = tableId;
+        thisBooking.selected = tableId;
 
       }
     }
