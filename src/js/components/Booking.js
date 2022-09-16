@@ -14,6 +14,7 @@ class Booking{
     thisBooking.selected = {};
   }
 
+
   getData(){
     const thisBooking =this;
 
@@ -166,7 +167,7 @@ class Booking{
 
     if(tableId){
       if(isBooked) {
-        alert('Ten stolik jest już zajęty. Wybierz inny stolik.');
+        alert('This table is already booked. Choose another table.');
       } else if (isSelected) {
         clickedElement.classList.remove(classNames.booking.tableSelected);
         thisBooking.selected = {};
@@ -243,7 +244,6 @@ class Booking{
       }
     }
 
-    thisBooking.booked[thisBooking.date][thisBooking.hour].push(thisBooking.tableSelected);
     const options = {
       method: 'POST',
       headers: {
@@ -256,8 +256,13 @@ class Booking{
         return response.json();
       }).then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
-        thisBooking.getData;
+        thisBooking.getData();
+        thisBooking.makeBooked(payload.date, utils.numberToHour(payload.hour), payload.duration, payload.table);
+        console.log('thisbooked', thisBooking.booked);
       });
+
+
+
   }
 }
 export default Booking;
