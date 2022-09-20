@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<link rel="stylesheet" href="./vendor/range-slider.min.css">
 	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -77,60 +77,104 @@
 
   <script id="template-home" type="text/x-handlebars-template">
     <div class="home-header">
-			<div>
-				<img src="./images/home/pizza-1.jpg" alt="hot-pizza">
-				<h3 class="uppercase">order online</h3>
+			<div class="row-wrapper">
+			  <div class="row">
+				  <img src="./images/home/pizza-1.jpg" alt="hot-pizza">
+				  <div class="order-booking">
+					  <a href="#order" class="button"><h3>order&nbsp;online</h3></a>
+					</div>
+			  </div>
+	  		<div class="row">
+  				<img src="./images/home/pizza-2.jpg" alt="restaurant-table">
+					<div class="order-booking">
+  				  <a href="#booking" class="button"><h3>book&nbsp;a&nbsp;table</h3></a>
+					</div>
+  			</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-2.jpg" alt="restaurant-table">
-				<h3 class="uppercase">book a table</h3>
-			</div>
-			<div>
-				<h3 class="uppercase">opening hours</h3>
-				<h4 class="uppercase">tue-sun, 12 pm - 12 am</h4>
-			</div>
+	  		<div class="opening-hours">
+		  		<h3>opening hours</h3>
+			  	<h4 class="light">tue-sun, 12 pm - 12 am</h4>
+  			</div>
 		</div>
-		<div class="main-carousel" data-flickity='{ "autoPlay": true }'>
-				<div class="carousel-cell">
-					<img src="./images/home/pizza-3.jpg" alt= "woman drinking wine">
-					<h4 class="uppercase">Amazing service!</h4>
-					<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</h5>
-					<h5>- Margaret Osborne</h5>
+    <div class="main-carousel" data-flickity='{ "autoPlay": true }'>
+	  		<div class="carousel-cell">
+		  		<div class="opinion">
+			  	<img src="./images/home/pizza-3.jpg" alt= "woman drinking wine">
+	  			</div>
+		  		<div class="opinion opinion-des">
+			  	  <h4>Amazing service!</h4>
+				    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</p>
+					  <p class="name">- Margaret Osborne</p>
+				  </div>
 				</div>
 				<div class="carousel-cell">
-					<img src="./images/home/pizza-3.jpg" alt= "woman drinking wine">
-					<h4 class="uppercase">Beautiful place!</h4>
-					<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</h5>
-					<h5>- Margaret Osborne</h5>
+					<div class="opinion">
+					<img src="./images/home/pizza-2.jpg" alt= "restaurant-table">
+				  </div>
+				  <div class="opinion opinion-des">
+					  <h4>Beautiful place!</h4>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</p>
+					  <p class="name">- John Dwayne</p>
+				  </div>
 				</div>
 				<div class="carousel-cell">
+					<div class="opinion">
 					<img src="./images/home/pizza-3.jpg" alt= "woman drinking wine">
-					<h4 class="uppercase">ABest pizza in town!</h4>
-					<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</h5>
-					<h5>- Margaret Osborne</h5>
+				  </div>
+				  <div class="opinion opinion-des">
+					  <h4>Best pizza in town!</h4>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra tortor et nulla molestie dapibus. Fusce venenatis turpis nisl, ac semper neque commodo sit.</p>
+					  <p class="name">- Julia Delpy</p>
+				  </div>
 				</div>
-		</div>
-		<div class="gallery">
-			<div>
-				<img src="./images/home/pizza-4.jpg" alt="bruschetta">
+
+	  </div>
+	  <div class="gallery">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-4.jpg" class="gallery-img" alt="bruschetta">
+				<div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-5.jpg" alt="salad">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-5.jpg" class="gallery-img" alt="salad">
+				<div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-6.jpg" alt="pizza with olives">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-6.jpg" class="gallery-img" alt="pizza with olives">
+				<div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-7.jpg" alt="open">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-7.jpg" class="gallery-img" alt="open"><div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-8.jpg" alt="pizza dough">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-8.jpg" class="gallery-img" alt="pizza dough">
+				<div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-			<div>
-				<img src="./images/home/pizza-9.jpg" alt="doors">
+			<div class="picture-wrapper">
+				<img src="./images/home/pizza-9.jpg" class="gallery-img" alt="doors">
+				<div class="icons-wrapper">
+					<a href="#"><i class="fa-solid fa-heart"></i></a>
+					<a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+				</div>
 			</div>
-		</div>
-		<div class="socials"></div>
+	  </div>
+	  <div class="socials">
+			<i><a href="#">View more on Instagram</a></i>
+	  </div>
 	</script>
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>

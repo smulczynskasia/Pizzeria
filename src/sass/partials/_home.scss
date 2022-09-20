@@ -1,0 +1,208 @@
+.home-wrapper {
+  height: 1258px;
+  width: 700px;
+  background: $color-light;
+  border-radius: $radius;
+  margin: auto;
+}
+
+h3 {
+  font-family: $font-header;
+  font-size: 26px;
+  font-weight: $font-semibold;
+  text-transform: uppercase;
+}
+
+h4 {
+  text-transform: uppercase;
+}
+
+/* Header */
+
+
+.home-header {
+  width: 604px;
+  height: 246px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  column-gap: 6px;
+
+}
+
+.row-wrapper {
+  display: flex;
+
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  position: relative;
+}
+
+.row a {
+  color: $color-dark;
+  //justify-content: space-between;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  z-index: 1;
+}
+
+.row img {
+  width: 299px;
+  height: 119px;
+  object-fit: cover;
+  border-radius: $radius;
+  color: $color-light;
+}
+
+//.order-booking {
+
+//}
+
+.button {
+  text-decoration: none;
+  color: $color-light;
+}
+
+.row-description {
+  position: absolute;
+  color: $color-light;
+  justify-content: center;
+}
+
+.opening-hours {
+  width: 604px;
+  height: 120px;
+  border-radius: $radius;
+  background-color: $color-main;
+  color: $color-light;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+.light {
+  font-weight: lighter;
+  margin: 0;
+}
+
+/* Carousel */
+
+.main-carousel {
+  height: 313px;
+  margin: 50px 0;
+
+  &.carousel-cell {
+    width: 604px;
+    height: 200px;
+    margin-right: 10px;
+    counter-increment: gallery-cell;
+    display: flex;
+  }
+}
+
+.opinion {
+  display: inline-block;
+}
+
+.opinion-des {
+  width: 450px;
+  height: 150px;
+  padding: 0 10px 0 40px;
+
+}
+
+.name {
+  font-style: italic;
+}
+
+/* Gallery */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.picture-wrapper {
+  position: relative;
+  padding: 3px 6px;
+
+}
+
+.gallery-img,
+img {
+  object-fit: cover;
+  width: 193px;
+  height: 193px;
+  border-radius: $radius;
+
+}
+
+.picture-wrapper::after {
+  position: absolute;
+  width: 193px;
+  height: 193px;
+  border-radius: $radius;
+  content: '';
+  background-color: $color-dark;
+  opacity: 0;
+  z-index: 0;
+  top: 0;
+}
+
+.picture-wrapper:hover::after {
+  position: absolute;
+  opacity: 60%;
+  display: block;
+
+}
+
+.icons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 193px;
+  height: 193px;
+  display: inline-block;
+}
+
+.icons-wrapper a {
+  color: $color-dark;
+  font-size: 20px;
+  display: inline;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+  padding: 5px;
+
+  // visibility: hidden;
+}
+
+.icons-wrapper a:hover {
+  color: $color-main;
+  text-decoration: none;
+}
+
+.picture-wrapper:hover .icon-wrapper a{
+  visibility: visible;
+}
+
+/* Instagram link */
+
+.socials a {
+  color: $color-main;
+  text-decoration: none;
+  display: flex;
+}

@@ -20,10 +20,15 @@ class Home{
 
   initWidgets(){
     const thisHome = this;
-    const flkty = new Flickity( thisHome.dom.wrapper.carouselWidget, {
+
+    const flkty = new Flickity( thisHome.dom.wrapper.carouselWidget, { /* eslint-disable-line */
       // options
       cellAlign: 'left',
-      contain: true
+      contain: true,
+      prevNextButtons: false,
+      wrapAround: true,
+      autoPlay: true
+
     });
   }
 }

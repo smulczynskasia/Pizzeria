@@ -256,9 +256,7 @@ class Booking{
         return response.json();
       }).then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
-        thisBooking.getData();
         thisBooking.makeBooked(payload.date, utils.numberToHour(payload.hour), payload.duration, payload.table);
-        console.log('thisbooked', thisBooking.booked);
       });
 
 
