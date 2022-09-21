@@ -112,6 +112,7 @@ class Booking{
 
       thisBooking.booked[date][hourBlock].push(table);
     }
+    thisBooking.updateDOM();
   }
 
   removeTables(){

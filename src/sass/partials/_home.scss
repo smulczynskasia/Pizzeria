@@ -19,14 +19,14 @@ h4 {
 /* Header */
 
 .home-header {
-	margin: 72px 0 36px 0;
+  margin: 72px 0 36px 0;
 }
 
 .row-wrapper {
   display: flex;
   justify-content: space-between;
-	flex-wrap: nowrap;
-	gap: ($base-size/2);
+  flex-wrap: nowrap;
+  gap: ($base-size/2);
 }
 
 .box {
@@ -38,10 +38,12 @@ h4 {
   border-radius: 5px;
   width: 300px;
   height: 120px;
+  position: relative;
+
 }
 
 .box img {
-	width: 300px;
+  width: 300px;
   height: 120px;
   object-fit: cover;
   border-radius: $radius;
@@ -49,33 +51,34 @@ h4 {
 
 .box a {
   text-decoration: none;
-  color: $color-dark;
+  color: $color-light;
 }
 
 .box p {
-	display: none;
+  display: none;
 }
 
 .box:hover h3 {
-	transform: translateY(-50%);
+  transform: translateY(-50%);
   transition: $transition;
 }
 
 .box:hover p {
-	transform: translateY(-50%);
+  transform: translateY(-50%);
   transition: $transition;
   display: inline;
+  color: $color-light;
 }
 
 .order-booking {
-	transform: translate(0);
-	top: 50%;
-	left: 50%;
-	display: inline-block;
+  // transform: translateY(0);
+  position: absolute;
+  top: 0;
+  display: inline-block;
 }
 
 .opening-hours {
-	width: 600px;
+  width: 600px;
   height: 120px;
   border-radius: $radius;
   background-color: $color-main;
@@ -102,11 +105,11 @@ h4 {
 
   &.carousel-cell {
     display: flex;
-		width: 100%;
-		height: 200px;
-		margin-right: 10px;
-		display: inline-block;
-		counter-increment: gallery-cell;
+    width: 100%;
+    height: 200px;
+    margin-right: 10px;
+    display: inline-block;
+    counter-increment: gallery-cell;
   }
 }
 
@@ -125,6 +128,7 @@ h4 {
 
 .opinion-des {
   width: 450px;
+  max-width: 60%;
   height: 150px;
   padding: 0 10px 0 40px;
 }
@@ -170,27 +174,30 @@ h4 {
   position: absolute;
   width: 193px;
   height: 193px;
-  display: inline-block;
+  display: inline;
+  top: 40%;
+  left: 40%;
+
 }
 
 .icons-wrapper a {
-  color: $color-dark;
+  color: $color-light;
   font-size: 20px;
-  display: inline;
   text-decoration: none;
-  position: absolute;
+  //position: absolute;
   z-index: 1;
   padding: 5px;
-  // visibility: hidden;
+  //display: inline;
+  display: none;
 }
 
 .icons-wrapper a:hover {
   color: $color-main;
-  text-decoration: none;
 }
 
-.picture-wrapper:hover .icon-wrapper a{
-  visibility: visible;
+.picture-wrapper:hover .icons-wrapper a{
+  display: inline;
+  text-decoration: none;
 }
 
 /* Instagram Link */
