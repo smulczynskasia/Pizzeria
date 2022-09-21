@@ -18,10 +18,6 @@ h4 {
 
 /* Header */
 
-.home-header {
-  margin: 72px 0 36px 0;
-}
-
 .row-wrapper {
   display: flex;
   justify-content: space-between;
@@ -39,7 +35,6 @@ h4 {
   width: 300px;
   height: 120px;
   position: relative;
-
 }
 
 .box img {
@@ -59,36 +54,37 @@ h4 {
 }
 
 .box:hover h3 {
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   transition: $transition;
 }
 
 .box:hover p {
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   transition: $transition;
   display: inline;
   color: $color-light;
+  margin-top: 0;
 }
 
 .order-booking {
-  // transform: translateY(0);
   position: absolute;
-  top: 0;
   display: inline-block;
 }
 
 .opening-hours {
-  width: 600px;
+  width: 606px;
   height: 120px;
   border-radius: $radius;
   background-color: $color-main;
   color: $color-light;
-  justify-content: center;
   text-align: center;
-  align-items: center;
   flex: 100%;
+  margin: ($base-size/2) 0;
+  padding: ($base-size*2) 0;
+}
+
+.opening-hours h3 {
   margin: auto;
-  padding: 0;
 }
 
 .light {
@@ -100,8 +96,8 @@ h4 {
 
 .main-carousel {
   height: 300px;
-  margin: 50px 0;
-  padding: 120px 0;
+  margin: 80px 0;
+  padding: 20px 0 0 0;
 
   &.carousel-cell {
     display: flex;
@@ -119,7 +115,6 @@ h4 {
   width: 193px;
   height: 193px;
   border-radius: $radius;
-
 }
 
 .opinion {
@@ -131,6 +126,7 @@ h4 {
   max-width: 60%;
   height: 150px;
   padding: 0 10px 0 40px;
+  margin-bottom: 0;
 }
 
 .name {
@@ -141,16 +137,19 @@ h4 {
 
 .gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+	margin: ($base-size/2) auto;
+	justify-content: space-between;
+	gap: 12px;
 }
 
 .picture-wrapper {
   position: relative;
-  padding: $base-size/4 $base-size/2;
 }
 
 .picture-wrapper::after {
   position: absolute;
+  padding: $base-size/4 $base-size/2;
   width: 193px;
   height: 193px;
   border-radius: $radius;
@@ -169,25 +168,19 @@ h4 {
 
 .icons-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   width: 193px;
   height: 193px;
-  display: inline;
   top: 40%;
   left: 40%;
-
 }
 
 .icons-wrapper a {
   color: $color-light;
   font-size: 20px;
   text-decoration: none;
-  //position: absolute;
   z-index: 1;
   padding: 5px;
-  //display: inline;
   display: none;
 }
 
