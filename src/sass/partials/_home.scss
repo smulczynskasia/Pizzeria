@@ -138,9 +138,9 @@ h4 {
 .gallery {
   display: flex;
   flex-direction: row;
-	margin: ($base-size/2) auto;
-	justify-content: space-between;
-	gap: 12px;
+  margin: ($base-size/2) auto;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .picture-wrapper {
@@ -196,7 +196,7 @@ h4 {
 /* Instagram Link */
 
 .socials a {
-  color: $color-main;
+  color: $color-dark;
   font-style: $font-normal;
   display: flex;
 }
