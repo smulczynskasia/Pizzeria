@@ -78,9 +78,8 @@ export const select = {
     remove: '[href="#remove"]',
   },
   home: {
-    orderOnline: '.order-online',
-    bookTable: '.book-table',
-  }
+    homeLinks: '.home-button',
+  },
 };
 
 export const classNames = {

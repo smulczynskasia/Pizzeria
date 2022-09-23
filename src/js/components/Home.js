@@ -6,7 +6,6 @@ class Home{
 
     thisHome.render(element);
     thisHome.initWidgets();
-    thisHome.initLinks();
   }
 
   render(element){
@@ -17,13 +16,6 @@ class Home{
     thisHome.dom.wrapper = element;
     thisHome.dom.wrapper.innerHTML = generatedHTML;
     thisHome.dom.wrapper.carouselWidget = thisHome.dom.wrapper.querySelector(select.widgets.flickity.carousel);
-    thisHome.dom.wrapper.orderOnline = thisHome.dom.wrapper.querySelector(select.home.orderOnline);
-    thisHome.dom.wrapper.bookTable = thisHome.dom.wrapper.querySelector(select.home.bookTable);
-  }
-
-  initLinks(){
-    const thisHome = this;
-    console.log(thisHome);
   }
 
   initWidgets(){
