@@ -50,20 +50,26 @@ h4 {
 }
 
 .box p {
-  display: none;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.box h3 {
+  margin: 36px 0 0 0;
 }
 
 .box:hover h3 {
   transform: translateY(-30%);
   transition: $transition;
+  margin: 0 0 10px 0;
 }
 
 .box:hover p {
-  transform: translateY(-30%);
+  transform: translateY(-50%);
   transition: $transition;
-  display: inline;
+  opacity: 100%;
   color: $color-light;
-  margin-top: 0;
+  margin: 0;
 }
 
 .order-booking {
