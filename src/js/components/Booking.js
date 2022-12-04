@@ -7,7 +7,7 @@ import DatePicker from './DatePicker.js';
 class Booking{
   constructor(element){
     const thisBooking = this;
-
+ 
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
